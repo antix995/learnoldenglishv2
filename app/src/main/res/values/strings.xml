@@ -1,10 +1,14 @@
 <resources>
-    <string name="app_name">ViewPagerCards</string>
+    <string name="app_name">Learn Old English</string>
 
-    <string name="title_1">Cool card</string>
-    <string name="title_2">Ok card</string>
-    <string name="title_3">Bad card</string>
-    <string name="title_4">Ugly card</string>
+    <string name="title_1">Chapter 1</string>
+    <string name="title_2">Chapter 2</string>
+    <string name="title_3">Chapter 3</string>
+    <string name="title_4">Chapter 4</string>
 
-    <string name="text_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum.</string>
+    <string name="text_1">min cynn/The Family</string>
+    <string name="text_2">min hus/The House</string>
+    <string name="text_3">ute/Outside</string>
+    <string name="text_4">timan, weder/Seasons, Weather</string>
+
 </resources>
