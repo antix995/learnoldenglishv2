@@ -48,16 +48,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mViewPager.setPageTransformer(false, mCardShadowTransformer);
         mViewPager.setOffscreenPageLimit(3);
 
+
+
+    }
+    public void select() {
         mButtonQuiz = (Button) findViewById(R.id.buttonQuiz);
-        mButtonQuiz.setOnClickListener(new View.OnClickListener(){
+        mButtonQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, QuizActivity.class));
             }
         });
-
     }
-
     //public void openQuizActivity(){
         //Intent intent = new Intent(this, QuizActivity.class);
         //startActivity(intent);
