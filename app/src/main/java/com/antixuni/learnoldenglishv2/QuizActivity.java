@@ -44,7 +44,7 @@ public class QuizActivity extends AppCompatActivity {
                     mScore = mScore + 1;
                     updateScore(mScore);
                     updateQuestion();
-                //This line of code is optiona
+                //This line of code is optional
                     Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
@@ -66,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
                     mScore = mScore + 1;
                     updateScore(mScore);
                     updateQuestion();
-                    //This line of code is optiona
+                    //This line of code is optional
                     Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
@@ -89,7 +89,7 @@ public class QuizActivity extends AppCompatActivity {
                     mScore = mScore + 1;
                     updateScore(mScore);
                     updateQuestion();
-                    //This line of code is optiona
+                    //This line of code is optional
                     Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
@@ -104,6 +104,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void updateQuestion(){
+        if (mQuestionNumber < mQuestionLibrary.getLength()) {
         mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
         mButtonChoice1.setText(mQuestionLibrary.getChoice1(mQuestionNumber));
         mButtonChoice2.setText(mQuestionLibrary.getChoice2(mQuestionNumber));
@@ -111,6 +112,11 @@ public class QuizActivity extends AppCompatActivity {
 
         mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
         mQuestionNumber++;
+        }
+        else {
+            Toast.makeText(QuizActivity.this, "Test is Over", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 

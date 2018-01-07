@@ -20,10 +20,11 @@
             android:padding="24dp">
 
             <TextView
+                android:id="@+id/titleTextView"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title_1" />
+                android:text="@string/title_1"/>
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"

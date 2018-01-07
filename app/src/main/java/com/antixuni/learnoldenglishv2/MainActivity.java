@@ -13,10 +13,8 @@ import android.widget.CompoundButton;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
 
-    Button mButtonQuiz;
     private Button mButton;
     private ViewPager mViewPager;
-
     private CardPagerAdapter mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
@@ -33,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
         mButton.setOnClickListener(this);
 
-        mCardAdapter = new CardPagerAdapter();
+
+
+        mCardAdapter = new CardPagerAdapter(MainActivity.this);
         mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
         mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_2));
         mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_3));
@@ -47,23 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mViewPager.setAdapter(mCardAdapter);
         mViewPager.setPageTransformer(false, mCardShadowTransformer);
         mViewPager.setOffscreenPageLimit(3);
-
-
-
     }
-    public void select() {
-        mButtonQuiz = (Button) findViewById(R.id.buttonQuiz);
-        mButtonQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, QuizActivity.class));
-            }
-        });
-    }
-    //public void openQuizActivity(){
-        //Intent intent = new Intent(this, QuizActivity.class);
-        //startActivity(intent);
-    //}
+
 
     @Override
     public void onClick(View view) {

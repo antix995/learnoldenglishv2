@@ -1,24 +1,30 @@
 package com.antixuni.learnoldenglishv2;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
-
+    Button btn_click;
     private List<CardView> mViews;
     private List<CardItem> mData;
     private float mBaseElevation;
+    Context mContext;
 
-    public CardPagerAdapter() {
+    public CardPagerAdapter(MainActivity mainActivity) {
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
+        mContext = mainActivity;
     }
 
     public void addCardItem(CardItem item) {
@@ -46,7 +52,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.adapter, container, false);
         container.addView(view);
@@ -59,7 +65,20 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
         cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
         mViews.set(position, cardView);
+
+        btn_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openQuizActivity();
+            }
+        });
+
         return view;
+    }
+
+    public void openQuizActivity(){
+        Intent intent = new Intent (btn_click.getContext(), QuizActivity.class);
+        mContext.startActivity(intent);
     }
 
     @Override
@@ -71,8 +90,11 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private void bind(CardItem item, View view) {
         TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
         TextView contentTextView = (TextView) view.findViewById(R.id.contentTextView);
+        btn_click = (Button) view.findViewById(R.id.btn_click);
+
         titleTextView.setText(item.getTitle());
         contentTextView.setText(item.getText());
+
     }
 
 }
