@@ -1,5 +1,6 @@
 package com.antixuni.learnoldenglishv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -115,7 +116,12 @@ public class QuizActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(QuizActivity.this, "Test is Over", Toast.LENGTH_SHORT).show();
-
+            Intent i = new Intent (QuizActivity.this, MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("Final Score", mScore);
+            i.putExtras(bundle);
+            QuizActivity.this.finish();
+            startActivity(i);
         }
     }
 
