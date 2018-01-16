@@ -7,6 +7,10 @@ public class QuestionLibrary {
             "How do you say 'I am' in old English?",
             "'hwā is ðis?' means..?",
             "'mōdor' is a...?",
+            "What is 'Woman' in old English?",
+            "What is 'Man' in old English?",
+            "'mægð' means..?",
+            "How do you say 'Boy' in old English?",
 
     };
 
@@ -14,10 +18,15 @@ public class QuestionLibrary {
             {"Hello!", "I am!", "My name is!"},
             {"ic hāte", "ic eom", "hwā is ðis"},
             {"What is this?", "Who is this?", "What are you called?"},
-            {"Father", "Brother", "Mother"}
+            {"Father", "Brother", "Mother"},
+            {"mægð","cwēn","wer"},
+            {"cnapa","mægð","wer"},
+            {"boy","dog","girl"},
+            {"cnapa","gehewā","hund"}
     };
 
-    private String mCorrectAnswers[] = {"Hello!", "ic eom", "Who is this?", "Mother"};
+    private String mCorrectAnswers[] = {"Hello!", "ic eom", "Who is this?", "Mother","cwēn",
+            "wer","girl","cnapa"};
 
     public String getQuestion(int a) {
         String question = mQuestions[a];
