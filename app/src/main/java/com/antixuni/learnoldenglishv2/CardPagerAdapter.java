@@ -2,6 +2,7 @@ package com.antixuni.learnoldenglishv2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -15,11 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
-    Button btn_click;
+    private Button btn_click;
     private List<CardView> mViews;
     private List<CardItem> mData;
     private float mBaseElevation;
-    Context mContext;
+    private Context mContext;
+
 
     public CardPagerAdapter(MainActivity mainActivity) {
         mData = new ArrayList<>();
@@ -57,27 +59,31 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                 .inflate(R.layout.adapter, container, false);
         container.addView(view);
         bind(mData.get(position), view);
-        CardView cardView = (CardView) view.findViewById(R.id.cardView);
+        final CardView cardView = (CardView) view.findViewById(R.id.cardView);
 
         if (mBaseElevation == 0) {
             mBaseElevation = cardView.getCardElevation();
         }
 
-        cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
+                cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
         mViews.set(position, cardView);
-
         btn_click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openQuizActivity();
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                     openQuizActivity();
+                }
+            });
 
         return view;
     }
 
     public void openQuizActivity(){
         Intent intent = new Intent (btn_click.getContext(), QuizActivity.class);
+        mContext.startActivity(intent);
+    }
+
+    public void openQuizActivity2(){
+        Intent intent = new Intent (btn_click.getContext(), QuizActivity2.class);
         mContext.startActivity(intent);
     }
 
@@ -94,7 +100,5 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
         titleTextView.setText(item.getTitle());
         contentTextView.setText(item.getText());
-
     }
-
 }

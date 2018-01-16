@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class CardFragment extends Fragment {
@@ -25,11 +27,16 @@ public class CardFragment extends Fragment {
         mCardView.setMaxCardElevation(mCardView.getCardElevation()
                 * CardAdapter.MAX_ELEVATION_FACTOR);
 
+        TextView title = (TextView) view.findViewById(R.id.title);
+        title.setText(String.format("Card %d", getArguments().getInt("position")));
         mbuttonQuiz = (Button) view.findViewById(R.id.buttonQuiz);
+
         mbuttonQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2){
                 openQuizActivity();
+                Toast.makeText(getActivity(), "Button in Card " + getArguments().getInt("position")
+                        + "Clicked!", Toast.LENGTH_SHORT).show();
             }
         });
 

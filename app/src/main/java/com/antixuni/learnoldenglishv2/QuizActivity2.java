@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity2 extends AppCompatActivity {
 
     private QuestionLibrary mQuestionLibrary = new QuestionLibrary();
 
@@ -32,14 +32,6 @@ public class QuizActivity extends AppCompatActivity {
         mButtonChoice1 = (Button)findViewById(R.id.choice1);
         mButtonChoice2 = (Button)findViewById(R.id.choice2);
         mButtonChoice3 = (Button)findViewById(R.id.choice3);
-        Button quit = (Button)findViewById(R.id.quit);
-
-        quit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(QuizActivity.this,MainActivity.class));
-            }
-        });
 
         updateQuestion();
 
@@ -54,10 +46,10 @@ public class QuizActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
                 //This line of code is optional
-                    Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Toast.makeText(QuizActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "wrong", Toast.LENGTH_SHORT).show();
                     updateQuestion();
                 }
             }
@@ -76,10 +68,10 @@ public class QuizActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
                     //This line of code is optional
-                    Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Toast.makeText(QuizActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "wrong", Toast.LENGTH_SHORT).show();
                     updateQuestion();
                 }
             }
@@ -99,10 +91,10 @@ public class QuizActivity extends AppCompatActivity {
                     updateScore(mScore);
                     updateQuestion();
                     //This line of code is optional
-                    Toast.makeText(QuizActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "correct", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Toast.makeText(QuizActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity2.this, "wrong", Toast.LENGTH_SHORT).show();
                     updateQuestion();
                 }
             }
@@ -123,12 +115,12 @@ public class QuizActivity extends AppCompatActivity {
         mQuestionNumber++;
         }
         else {
-            Toast.makeText(QuizActivity.this, "Test is Over", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent (QuizActivity.this, MainActivity.class);
+            Toast.makeText(QuizActivity2.this, "Test is Over", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent (QuizActivity2.this, MainActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("Final Score", mScore);
             i.putExtras(bundle);
-            QuizActivity.this.finish();
+            QuizActivity2.this.finish();
             startActivity(i);
         }
     }
@@ -138,4 +130,3 @@ public class QuizActivity extends AppCompatActivity {
         mScoreView.setText("" + mScore);
     }
 }
-
