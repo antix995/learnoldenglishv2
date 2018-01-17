@@ -22,13 +22,13 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private float mBaseElevation;
     private Context mContext;
 
-
+    //instantiate arrays to be passed to views
     public CardPagerAdapter(MainActivity mainActivity) {
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
         mContext = mainActivity;
     }
-
+    //adds blank views and then inputs the data into them using adapters
     public void addCardItem(CardItem item) {
         mViews.add(null);
         mData.add(item);
